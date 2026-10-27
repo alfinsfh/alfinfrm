@@ -625,10 +625,12 @@
       const moveY = currentPointer.y - previousPointer.y;
       const pointerSpeed = Math.hypot(moveX, moveY) / elapsed;
       const moveLength = Math.hypot(moveX, moveY);
-      const minimumSweepSpeed = event.pointerType === "touch" ? 12 : 35;
+      const isTouchSweep = event.pointerType === "touch";
+      const minimumSweepSpeed = isTouchSweep ? 12 : 35;
 
       if (pointerSpeed > minimumSweepSpeed && moveLength > 0) {
-        const windStrength = Math.min(pointerSpeed * 0.18, 240);
+        const windStrength = Math.min(pointerSpeed * (isTouchSweep ? 0.38 : 0.3), 480);
+        const pushStrength = isTouchSweep ? 1.8 : 1.4;
         const startX = previousPointer.x;
         const startY = previousPointer.y;
         const segmentLengthSquared = moveX * moveX + moveY * moveY;
@@ -650,22 +652,22 @@
 
           const proximity = 1 - distance / sweepRadius;
           leaf.sweepWindX = clamp(
-            leaf.sweepWindX + (moveX / moveLength) * windStrength * proximity,
-            -280,
-            280
+            leaf.sweepWindX + (moveX / moveLength) * windStrength * proximity * pushStrength,
+            -560,
+            560
           );
           leaf.sweepWindY = clamp(
-            leaf.sweepWindY + (moveY / moveLength) * windStrength * proximity,
-            -280,
-            280
+            leaf.sweepWindY + (moveY / moveLength) * windStrength * proximity * pushStrength,
+            -560,
+            560
           );
           const offsetX = closestX - centerX;
           const offsetY = closestY - centerY;
           const torque = (offsetX * moveY - offsetY * moveX) / (moveLength * sweepRadius);
           leaf.sweepAngularVelocity = clamp(
-            leaf.sweepAngularVelocity + torque * windStrength * proximity * 0.8,
-            -240,
-            240
+            leaf.sweepAngularVelocity + torque * windStrength * proximity * (isTouchSweep ? 1.1 : 0.9),
+            -360,
+            360
           );
           leaf.lastSweepUpdate = now;
         }
