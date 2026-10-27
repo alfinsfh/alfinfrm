@@ -1,0 +1,982 @@
+      /* Reset dasar */
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore');
+      @import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        background-color: #080501;
+        color: #fff;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header__logo {
+        color: inherit;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      .header__nav {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Libertinus Serif", serif;
+      }
+
+      .header__nav-item {
+        margin-left: 25px;
+        position: relative;
+      }
+
+      .header__nav-link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        padding-bottom: 5px;
+        position: relative;
+        font-family: "Libertinus Serif", serif;
+      }
+
+      .header__nav-link:hover::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+      }
+
+      .header__button {
+        display: inline-block;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        transition: background-color 0.3s, color 0.3s;
+        color: #fff;
+      }
+
+      .header__button:hover {
+        background-color: #fff;
+        color: #000;
+      }
+
+      /* Hamburger Menu */
+      .header__hamburger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+
+      .header__hamburger span {
+        display: block;
+        height: 1px;
+        background-color: #fff;
+      }
+
+      .header__mobile-nav {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 3;
+      }
+
+      .header__mobile-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      /* Hero banner */
+      .hero-banner {
+        position: relative;
+        z-index: 1;
+        overflow: visible;
+        padding: 0;
+        scroll-margin-top: 24px;
+        border-top: 1px solid rgba(255, 234, 188, 0.12);
+        border-bottom: 1px solid rgba(255, 234, 188, 0.2);
+        background: #140c02;
+      }
+
+      .hero-banner::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(8, 5, 1, 0.25), transparent 48%, rgba(8, 5, 1, 0.12));
+        content: "";
+        pointer-events: none;
+      }
+
+      .hero-banner__image {
+        display: block;
+        width: 100%;
+        height: clamp(240px, 36vw, 500px);
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero__title {
+        font-size: clamp(5rem, 7vw, 5.5rem);
+        font-weight: 400;
+        margin-bottom: 3rem;
+        line-height: 1;
+        color: #ffeabc;
+        text-align: center;
+        font-family: "Cormorant SC", serif;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        align-items: end;
+        gap: clamp(36px, 7vw, 96px);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: clamp(72px, 9vw, 120px) 40px;
+        scroll-margin-top: 24px;
+      }
+
+      .hero__eyebrow {
+        margin-bottom: 20px;
+        color: #c7a974;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+      }
+
+      .hero__title1 {
+        max-width: 740px;
+        font-size: clamp(2.8rem, 5.8vw, 5rem);
+        font-weight: 400;
+        line-height: 1.02;
+        color: #ffeabc;
+        font-family: "Cormorant SC", serif;
+      }
+
+      .hero__arrow {
+        display: inline-block;
+        margin-left: 8px;
+        font-size: 1.5rem;
+        vertical-align: middle;
+      }
+
+      .hero__description {
+        max-width: 440px;
+        padding-left: 22px;
+        border-left: 1px solid rgba(255, 234, 188, 0.45);
+        font-size: clamp(1rem, 1.25vw, 1.1rem);
+        margin: 0;
+        color: #fff3da;
+        font-family: "Libertinus Serif", serif;
+      }
+
+      .hero__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin: 24px 0 0 22px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid rgba(255, 234, 188, 0.48);
+        color: #ffeabc;
+        font-family: "Libertinus Serif", serif;
+        font-size: 0.9rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .hero__link:hover {
+        color: #fff;
+        border-color: #fff;
+      }
+
+      .leaf {
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        pointer-events: none;
+        will-change: transform;
+        opacity: 0.9;
+        user-select: none;
+        background: transparent;
+      }
+
+      /* Section */
+
+      .section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 40px;
+        scroll-margin-top: 24px;
+      }
+
+      .section__title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        font-family: "Cormorant SC", serif;
+        color: #ffeabc;
+      }
+
+      .section__icons {
+        display: inline-flex;
+        gap: 10px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      .about__content {
+        display: flex;
+        align-items: center;
+        gap: clamp(28px, 6vw, 80px);
+      }
+
+      .about__photo {
+        position: relative;
+        isolation: isolate;
+        flex: 0 1 360px;
+        width: min(40%, 360px);
+        max-width: 360px;
+        aspect-ratio: 1;
+      }
+
+      .about__vinyl {
+        position: absolute;
+        top: 50%;
+        left: -44%;
+        z-index: -1;
+        display: block;
+        width: 84%;
+        height: auto;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        transform: translateY(-50%) rotate(-12deg);
+      }
+
+      .about__image {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border: 1px solid rgba(255, 234, 188, 0.45);
+        background: #f4ead6;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+        object-fit: cover;
+        object-position: center 35%;
+      }
+
+      .section__icon::before {
+        content: "★";
+        font-size: 0.9rem;
+      }
+
+      .section__subtitle {
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 1rem;
+        max-width: 100%;
+        margin: 0;
+        line-height: 1.6;
+        font-family: "Libertinus Serif", serif;
+        color: #fff3da;
+      }
+
+      .section__subtitle a {
+        color: #fff3da;
+        font-weight: 600;
+      }
+
+      .section__subtitle b {
+        color: #fff3da;
+        font-size: 2rem;
+        font-family: "Cormorant SC", serif;
+      }
+
+      /* Skills */
+      .skills-section {
+        padding-top: 40px;
+      }
+
+      .skills__row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 40px;
+        padding: 10px 0;
+      }
+
+      .skills__item {
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        font-weight: 300;
+        letter-spacing: 1px;
+        opacity: 0.85;
+        transition: opacity 0.3s ease;
+        font-family: "Libertinus Serif", serif;
+        color: #fff3da;
+      }
+
+      .skills__item:hover {
+        opacity: 1;
+      }
+
+      .education-section {
+        scroll-margin-top: 24px;
+      }
+
+      .education__panel {
+        width: min(100%, 760px);
+        margin: 0 auto;
+        padding: clamp(20px, 4vw, 36px);
+        background:
+          linear-gradient(90deg, transparent 49.8%, rgba(65, 53, 35, 0.16) 50%, transparent 50.2%),
+          repeating-linear-gradient(0deg, #f4ead6, #f4ead6 34px, #e6dac2 35px, #f4ead6 36px);
+        box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+      }
+
+      .education__timeline {
+        max-width: none;
+      }
+
+      .education__entry {
+        position: relative;
+        min-height: 54px;
+        padding: 2px 0 16px 22px;
+        border-left: 1px solid #3b3022;
+      }
+
+      .education__entry:last-child {
+        min-height: 0;
+        padding-bottom: 2px;
+        border-left-color: transparent;
+      }
+
+      .education__marker {
+        position: absolute;
+        top: 4px;
+        left: -5px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background:#3b3022;
+      }
+
+      .education__name {
+        color:#29251e;
+        font: 0.98rem/1.7 "Libertinus Serif", serif;
+      }
+
+
+      .certificates-section {
+        scroll-margin-top: 24px;
+        background-color: #140c02;
+        padding: 60px 40px 80px;
+        color: #fff3da;
+      }
+
+      .certificates-container {
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+
+      .certificates-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        font-family: "Cormorant SC", serif;
+        color: #ffeabc;
+      }
+
+      .certificates-scroll {
+        display: flex;
+        align-items: stretch;
+        width: max-content;
+        gap: 24px;
+        padding: 12px 10px 20px;
+      }
+
+      .certificates-viewport {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        scroll-behavior: auto;
+        touch-action: pan-x;
+        cursor: grab;
+      }
+
+      .certificates-viewport::-webkit-scrollbar {
+        display: none;
+      }
+
+      .certificates-viewport.is-dragging {
+        cursor: grabbing;
+        user-select: none;
+      }
+
+      .certificate-card {
+        position: relative;
+        flex: 0 0 250px;
+        width: 250px;
+        padding: 10px;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+        transition: transform 0.3s ease;
+        background: #f4ead6;
+         box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+      }
+
+      .certificate-card:focus-visible {
+        outline: 2px solid #ffeabc;
+        outline-offset: 5px;
+      }
+
+      .certificate-card::before,
+      .certificate-card::after {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .certificate-card::before {
+        background:
+          radial-gradient(circle, #140c02 0 4.5px, transparent 5px) left 0 top 10px / 10px 22px repeat-y,
+          radial-gradient(circle, #140c02 0 4.5px, transparent 5px) right 0 top 10px / 10px 22px repeat-y;
+      }
+
+      .certificate-card::after {
+        background:
+          radial-gradient(circle, #140c02 0 4.5px, transparent 5px) left 10px top 0 / 20px 10px repeat-x,
+          radial-gradient(circle, #140c02 0 4.5px, transparent 5px) left 10px bottom 0 / 20px 10px repeat-x;
+      }
+
+      .certificate-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .certificate-image {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+        border:#d6c8ac 1px solid;
+      }
+
+        .certificates-red img{
+        position: relative;
+        z-index: 1;
+        width: 50px;
+        object-fit: cover;
+        display: block;
+        margin-left: 10px;
+      }
+
+      .certificate-info {
+        position: relative;
+        z-index: 1;
+        min-height: 86px;
+        padding: 14px 8px 8px;
+        color: #3b3022;
+
+      }
+
+      .certificate-name {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 5px;
+        font-family: "Libertinus Serif", serif;
+      }
+
+      .projects-section {
+        padding: 60px 40px 80px;
+        scroll-margin-top: 24px;
+        color: #fff3da;
+        background: #080501;
+      }
+
+      .projects-container {
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+
+      .project-card .certificate-info {
+        flex: 1;
+        min-height: 58px;
+        padding: 12px 4px 4px;
+        color: #fff3da;
+      }
+
+      .project-card {
+        padding: 18px 12px 10px;
+        border: 1px solid #51432c;
+        background: #17140e;
+        box-shadow: 0 20px 100px rgba(0, 0, 0, 0.45);
+        box-shadow: 2px 3px 2px rgba(0, 0, 0, 0), 0 0 60px #201608 inset;
+      }
+
+      .project-card::before,
+      .project-card::after {
+        inset: 0;
+        z-index: 2;
+      }
+
+      .project-card::before {
+        background:
+          repeating-linear-gradient(90deg, #c7b995 0 8px, transparent 8px 20px) left top / 100% 7px repeat-x,
+          repeating-linear-gradient(90deg, #c7b995 0 8px, transparent 8px 20px) left bottom / 100% 7px repeat-x;
+      }
+
+      .project-card::after {
+        display: none;
+      }
+
+      .project-card .certificate-image {
+        border: 0;
+      }
+
+      .project-category + .project-category {
+        margin-top: 42px;
+      }
+
+      .project-category__title {
+        margin-bottom: 6px;
+        color: #ffeabc;
+        font: 500 clamp(1.35rem, 2.4vw, 1.8rem) "Cormorant SC", serif;
+      }
+
+      .project-image {
+        height: 150px;
+      }
+
+      .certificate-source {
+        font-size: 0.85rem;
+        color: #aaa;
+      }
+
+      /* Responsif */
+      @media (max-width: 768px) {
+        .header {
+          padding: 18px 24px;
+        }
+
+        .header__nav {
+          display: none;
+        }
+
+        .header__hamburger {
+          display: flex;
+        }
+
+        .header__mobile-nav.active {
+          display: flex;
+        }
+
+        .hero-banner__image {
+          height: clamp(220px, 55vw, 340px);
+        }
+
+        .hero {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 30px;
+          padding: 64px 24px 72px;
+        }
+
+        .hero__eyebrow {
+          margin-bottom: 14px;
+        }
+
+        .hero__title1 {
+          font-size: clamp(2.8rem, 11vw, 4.3rem);
+        }
+
+        .hero__description {
+          max-width: 600px;
+        }
+
+        .section {
+          padding: 64px 24px;
+        }
+
+        .education__panel {
+          padding: 24px 20px;
+        }
+
+        .about__content {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 28px;
+        }
+
+        .about__image {
+          width: 100%;
+        }
+
+        .about__photo {
+          width: min(100%, 300px);
+          flex: 0 0 auto;
+          align-self: center;
+        }
+
+        .section__subtitle {
+          flex: 0 0 auto;
+          width: 100%;
+        }
+
+        .certificates-section {
+          padding: 56px 24px 64px;
+          background-image:
+          linear-gradient(90deg, transparent 49.8%, rgba(65, 53, 35, 0.16) 50%, transparent 50.2%);
+        }
+
+        .projects-section {
+          padding: 56px 24px 64px;
+        }
+
+        .certificates-scroll {
+          gap: 18px;
+        }
+
+        .certificate-card {
+          flex-basis: 220px;
+          width: 220px;
+        }
+
+        .certificate-image {
+          height: 135px;
+        }
+
+        .certificate-info {
+          min-height: 82px;
+          padding: 12px 8px 8px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .certificate-card {
+          flex-basis: 205px;
+          width: 205px;
+        }
+      }
+
+      .shape {
+        position: absolute;
+        left: -8rem;
+        top: -8rem;
+        width: 300px;
+        height: 300px;
+        background: rgba(243, 179, 83, 0.329);
+        border-radius: 50%;
+        filter: blur(124px);
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .certificate-card--hidden {
+        display: none;
+      }
+
+      .contact-section {
+        padding: 80px 40px;
+        scroll-margin-top: 24px;
+        background: #080501;
+      }
+
+      .contact-form {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto auto 1fr auto;
+        gap: 24px 32px;
+        width: min(100%, 740px);
+        min-height: 498px;
+        margin: 0 auto;
+        padding: 48px;
+        color: #29251e;
+        background:
+          linear-gradient(90deg, transparent 49.8%, rgba(65, 53, 35, 0.16) 50%, transparent 50.2%),
+          repeating-linear-gradient(0deg, #f4ead6, #f4ead6 34px, #e6dac2 35px, #f4ead6 36px);
+         box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+      }
+
+      .contact-form h2 {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        font: 1.25rem "Special Elite", cursive;
+      }
+
+      .contact-field {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+
+      .contact-field label {
+        font: 0.95rem "Special Elite", cursive;
+      }
+
+      .contact-field input,
+      .contact-field textarea {
+        width: 100%;
+        padding: 8px 4px;
+        color: #29251e;
+        font: 1.2rem "La Belle Aurore", cursive;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid rgba(65, 53, 35, 0.35);
+        border-radius: 0;
+      }
+
+      .contact-field input:focus,
+      .contact-field textarea:focus {
+        outline: 2px solid rgba(65, 53, 35, 0.45);
+        outline-offset: 2px;
+        border-radius: 3px;
+      }
+
+      .contact-form #from {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .contact-form #reply {
+        grid-column: 2;
+        grid-row: 3;
+      }
+
+      .contact-form #message {
+        grid-column: 1;
+        grid-row: 2 / 4;
+      }
+
+      .contact-field textarea {
+        flex: 1;
+        min-height: 220px;
+        line-height: 1.5;
+        resize: vertical;
+      }
+
+      .contact-form__button {
+        grid-column: 2;
+        grid-row: 4;
+        justify-self: end;
+      }
+
+      .contact-form__button button {
+        padding: 10px 16px;
+        color: #29251e;
+        font: 600 0.9rem "Roboto", Arial, sans-serif;
+        background: transparent;
+        border: 1px solid #5d5140;
+        border-radius: 5px;
+        cursor: pointer;
+        transform: rotate(-1.5deg);
+        transition: color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .contact-form__button button::after {
+        content: " >>>";
+      }
+
+      .contact-form__button button:hover,
+      .contact-form__button button:focus-visible {
+        color: #fff;
+        background: #29251e;
+      }
+
+      .contact-form__button button:focus-visible {
+        outline: 2px solid #29251e;
+        outline-offset: 3px;
+      }
+
+      .contact-form__notice {
+        width: min(100%, 740px);
+        margin: 16px auto 0;
+        color: #fff3da;
+        font-size: 0.95rem;
+      }
+
+      .preview-dialog {
+        position: fixed;
+        inset: 0;
+        width: min(92vw, 1100px);
+        max-width: none;
+        max-height: 90vh;
+        margin: auto;
+        padding: 0;
+        overflow: visible;
+        border: 1px solid rgba(255, 234, 188, 0.35);
+        background: #100b04;
+        color: #fff3da;
+        box-shadow: 0 24px 90px rgba(0, 0, 0, 0.7);
+      }
+
+      .preview-dialog::backdrop {
+        background: rgba(0, 0, 0, 0.82);
+        backdrop-filter: blur(5px);
+      }
+
+      .preview-dialog__content {
+        position: relative;
+        max-height: 90vh;
+        padding: 16px;
+      }
+
+      .preview-dialog__close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        z-index: 1;
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid rgba(255, 234, 188, 0.45);
+        border-radius: 50%;
+        background: rgba(8, 5, 1, 0.8);
+        color: #fff3da;
+        font-size: 1.8rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .preview-dialog__close:hover,
+      .preview-dialog__close:focus-visible {
+        background: #ffeabc;
+        color: #140c02;
+      }
+
+      .preview-dialog__figure {
+        display: grid;
+        max-height: calc(90vh - 32px);
+        justify-items: center;
+        gap: 14px;
+        margin: 0;
+      }
+
+      .preview-dialog__image {
+        display: block;
+        max-width: 100%;
+        max-height: calc(90vh - 100px);
+        object-fit: contain;
+      }
+
+      .preview-dialog__title {
+        max-width: 100%;
+        padding: 0 48px;
+        color: #ffeabc;
+        font: 400 clamp(1.15rem, 3vw, 1.8rem) "Cormorant SC", serif;
+        text-align: center;
+      }
+
+      .socialmedia {
+        grid-column: 2;
+        grid-row: 3;
+        align-self: start;
+        font-family: "Libertinus Serif", serif;
+      }
+
+      .socialmedia a {
+        color: #29251e;
+        text-decoration: none;
+      }
+
+      .socialmedia a:hover {
+        text-decoration: underline;
+        color:#140c02
+      }
+
+      .socialmedia h2 {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+        margin-top: 24px;
+      }
+
+      @media (max-width: 768px) {
+        .contact-section {
+          padding: 56px 24px 64px;
+        }
+
+        .contact-form {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+          gap: 20px;
+          min-height: 0;
+          padding: 28px 24px;
+          background: repeating-linear-gradient(0deg, #f4ead6, #f4ead6 34px, #e6dac2 35px, #f4ead6 36px);
+        }
+
+        .preview-dialog {
+          width: calc(100vw - 24px);
+        }
+
+        .preview-dialog__content {
+          padding: 10px;
+        }
+
+        .preview-dialog__image {
+          max-height: calc(90vh - 90px);
+        }
+
+        .contact-form h2,
+        .contact-form #from,
+        .contact-form #reply,
+        .contact-form #message,
+        .contact-form__button {
+          grid-column: 1;
+          grid-row: auto;
+        }
+
+        .contact-field textarea {
+          min-height: 190px;
+        }
+
+      }
