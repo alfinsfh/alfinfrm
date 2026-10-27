@@ -602,12 +602,17 @@
     }
 
     let previousPointer = null;
-    window.addEventListener("pointermove", (event) => {
+    window.addEventListener("pointerdown", (event) => {
       if (event.pointerType === "touch") {
-        previousPointer = null;
-        return;
+        previousPointer = {
+          x: event.clientX,
+          y: event.clientY,
+          time: performance.now()
+        };
       }
+    });
 
+    window.addEventListener("pointermove", (event) => {
       const now = performance.now();
       const currentPointer = { x: event.clientX, y: event.clientY, time: now };
       if (!previousPointer) {
@@ -620,8 +625,9 @@
       const moveY = currentPointer.y - previousPointer.y;
       const pointerSpeed = Math.hypot(moveX, moveY) / elapsed;
       const moveLength = Math.hypot(moveX, moveY);
+      const minimumSweepSpeed = event.pointerType === "touch" ? 12 : 35;
 
-      if (pointerSpeed > 35 && moveLength > 0) {
+      if (pointerSpeed > minimumSweepSpeed && moveLength > 0) {
         const windStrength = Math.min(pointerSpeed * 0.18, 240);
         const startX = previousPointer.x;
         const startY = previousPointer.y;
@@ -671,6 +677,14 @@
 
       previousPointer = currentPointer;
     });
+
+    const resetTouchPointer = (event) => {
+      if (event.pointerType === "touch") {
+        previousPointer = null;
+      }
+    };
+    window.addEventListener("pointerup", resetTouchPointer);
+    window.addEventListener("pointercancel", resetTouchPointer);
 
     function startLeavesFallingSequentially() {
       // Batalkan urutan sebelumnya.
