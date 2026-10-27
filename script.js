@@ -231,8 +231,9 @@
       event.preventDefault();
 
       const senderName = contactForm.elements.user_name.value.trim();
+      const senderEmail = contactForm.elements.user_email.value.trim();
       const message = contactForm.elements.user_message.value.trim();
-      const whatsappMessage = `From: ${senderName}\n\n${message}`;
+      const whatsappMessage = `From: ${senderName}\nEmail: ${senderEmail}\n\n${message}`;
       const whatsappUrl =
         `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
