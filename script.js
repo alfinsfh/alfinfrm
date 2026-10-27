@@ -181,6 +181,10 @@
     };
 
     document.addEventListener("click", (event) => {
+      if (event.target.closest(".game-roblox-link")) {
+        return;
+      }
+
       const card = event.target.closest(".certificate-card:not(.certificate-card--hidden)");
       if (!card) {
         if (event.target === previewDialog) {
@@ -201,6 +205,10 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && previewDialog.open) {
         previewDialog.close();
+        return;
+      }
+
+      if (event.target.closest(".game-roblox-link")) {
         return;
       }
 

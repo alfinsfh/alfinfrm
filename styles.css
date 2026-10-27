@@ -555,6 +555,54 @@
         color: #fff3da;
       }
 
+      .game-roblox-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+        padding: 7px 12px;
+        border: 1px solid #c7a974;
+        color: #ffeabc;
+        font: 0.85rem "Libertinus Serif", serif;
+        text-decoration: none;
+        transition: color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .game-description {
+        color: rgba(255, 243, 218, 0.76);
+        font: 0.9rem/1.5 "Libertinus Serif", serif;
+      }
+
+      .game-logo {
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        width: 88px;
+        height: 88px;
+        padding: 10px;
+        border: 1px solid rgba(199, 169, 116, 0.8);
+        border-radius: 50%;
+        background: #17140e;
+        object-fit: contain;
+        transform: translateX(-50%);
+        z-index: 3;
+      }
+
+      .game-development-grid .certificate-info {
+        position: relative;
+      }
+
+      .game-development-grid .certificate-name {
+        margin-top: 34px;
+        text-align: center;
+      }
+
+      .game-roblox-link:hover,
+      .game-roblox-link:focus-visible {
+        background: #c7a974;
+        color: #140c02;
+      }
+
       .project-card {
         padding: 18px 12px 10px;
         border: 1px solid #51432c;
@@ -581,6 +629,19 @@
 
       .project-card .certificate-image {
         border: 0;
+      }
+
+      .game-development-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 250px));
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .game-development-grid .project-card {
+        width: 100%;
+        min-width: 0;
+        flex: initial;
       }
 
       .project-category + .project-category {
